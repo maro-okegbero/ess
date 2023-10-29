@@ -35,6 +35,7 @@ class CreateUserSerializer(RegisterSerializer):
         serializer.save() calls this function
         """
         validated_data['email'] = validated_data['email'].lower()
+        validated_data['username'] = validated_data['email'].lower()
         validated_data['is_administrator'] = False
         user = User.objects.create_user(**validated_data)
 
