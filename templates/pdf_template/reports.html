@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ESG Report</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, h3, p, table {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Center content on the page */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>ESG REPORT</h1>
+    <h2>Report For {{project.company_name}}</h2>
+    <h3>Owner: {{project.owner}}</h3>
+    <h3>Sector: {{project.sector}}</h3>
+    <h3>Location: {{project.location}}</h3>
+    <h3>Start Date: {{project.start_date}}</h3>
+    <table>
+        <tr>
+            <th>Task Name</th>
+            <th>Schedule</th>
+        </tr>
+        <!-- Loop through project tasks here and generate rows -->
+        {% for task in project.tasks.all %}
+            <tr>
+                <td>{{ task.task_name }}</td>
+                <td>{{ task.schedule }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
